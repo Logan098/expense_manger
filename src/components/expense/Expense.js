@@ -1,8 +1,9 @@
-import Card from "./Card";
+import React from "react";
+import Card from "../ui/Card";
 import "./Expense.css";
 import ExpenseItem from "./ExpenseItem";
 
-function Expense({ expenses }) {
+const Expense = ({ expenses }) => {
   const items = [];
 
   for (let i = 0; i < expenses.length; i++) {
@@ -17,7 +18,6 @@ function Expense({ expenses }) {
   }
 
   return <Card className="expenses"> {items}</Card>;
-}
+};
 
 export default Expense;
- 
