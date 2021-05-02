@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseFrom = ({onNewExpense}) => {
+const ExpenseFrom = ({onNewExpense,onCancelHandler}) => {
   const [title, setTitle] = useState('')
   const [amount, setAmount] = useState('')
   const [date, setDate] = useState('')
@@ -47,7 +47,7 @@ const ExpenseFrom = ({onNewExpense}) => {
     const expenseData = {
       id: Math.random().toString(),
       title,
-      amount,
+      amount : +amount,
       date: new Date(date)
     }
     onNewExpense(expenseData)
@@ -56,7 +56,6 @@ const ExpenseFrom = ({onNewExpense}) => {
     setAmount("")
     setDate("")
 
-    console.log(expenseData);
 
   }
 
@@ -77,7 +76,9 @@ const ExpenseFrom = ({onNewExpense}) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={onCancelHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
+
       </div>
     </form>
   );
